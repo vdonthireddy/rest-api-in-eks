@@ -1,5 +1,6 @@
 
 # aws ecr get-login-password --region us-east-2| docker login --username AWS --password-stdin 759693498865.dkr.ecr.us-east-2.amazonaws.com
+mvn clean install
 
 docker buildx build --platform linux/amd64 -t hello-world-java:v12 .
 docker tag hello-world-java:v12 759693498865.dkr.ecr.us-east-2.amazonaws.com/hello-repository:v12
