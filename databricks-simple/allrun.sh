@@ -12,7 +12,11 @@ docker run -d \
 # for spark run the following code before the spark-submit
 export SPARK_LOCAL_IP="127.0.0.1"
 
-# submit the jar file to spark
+# package the jar
+cd /Users/donthireddy/code/mygit/databricks-simple
+mvn clean package
+
+# submit the jar file to spark (make sure to use the jar-with-dependencies)
 cd ~/code/spark-3.5.5-bin-hadoop3/
 ./bin/spark-submit --class=com.niharsystems.Main /Users/donthireddy/code/mygit/databricks-simple/target/databricks-simple-1.0-SNAPSHOT-jar-with-dependencies.jar
 
