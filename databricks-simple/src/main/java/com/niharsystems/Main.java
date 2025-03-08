@@ -44,9 +44,9 @@ public class Main {
 
         Dataset<Row> df = spark.read().option("multiline", "true").json("s3a://vj-bucket/sample.json");
         df.printSchema();
-        df.show();
-        System.out.println(df.count());
-        System.out.println(df.columns());
+        df.select("user.address.zip").show();
+//        System.out.println(df.count());
+//        System.out.println(df.columns());
         spark.stop();
     }
 }
